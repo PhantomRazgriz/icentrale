@@ -41,6 +41,16 @@
                 </button>
             </div>
         </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="header__nav--mobile" aria-hidden="true">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#about" class="nav__link">Chi Siamo</a></li>
+                <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
+                <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contatti</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -59,10 +69,10 @@
                 </div>
             </div>
         </div>
-        <div class="hero__scroll">
+        <a href="#about" class="hero__scroll">
             <span class="scroll__text">Scorri</span>
             <span class="scroll__arrow">↓</span>
-        </div>
+        </a>
     </section>
 
     <!-- About Section -->
@@ -190,29 +200,31 @@
             <p class="section__subtitle">Scorci, momenti e atmosfere di A i' centrale</p>
         </div>
         
-        <div class="gallery__grid">
-            <div class="gallery__item">
-                <img src="assets/images/gallery/drink-1.jpg" alt="Cocktail al banco" loading="lazy">
-                <div class="gallery__overlay">
-                    <span class="gallery__caption">I nostri cocktails</span>
+        <div class="container">
+            <div class="gallery__grid">
+                <div class="gallery__item">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&h=800&fit=crop" alt="Cocktail al banco" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span class="gallery__caption">I nostri cocktails</span>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery__item">
-                <img src="assets/images/gallery/food-1.jpg" alt="Aperitivo con stuzzichini" loading="lazy">
-                <div class="gallery__overlay">
-                    <span class="gallery__caption">Aperitivi curati</span>
+                <div class="gallery__item">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=800&fit=crop" alt="Aperitivo con stuzzichini" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span class="gallery__caption">Aperitivi curati</span>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery__item">
-                <img src="assets/images/gallery/ambience-1.jpg" alt="Interno del locale" loading="lazy">
-                <div class="gallery__overlay">
-                    <span class="gallery__caption">L'atmosfera</span>
+                <div class="gallery__item">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=800&fit=crop" alt="Interno del locale" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span class="gallery__caption">L'atmosfera</span>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery__item">
-                <img src="assets/images/gallery/drink-2.jpg" alt="Caffè espresso" loading="lazy">
-                <div class="gallery__overlay">
-                    <span class="gallery__caption">Il rito del caffè</span>
+                <div class="gallery__item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=800&fit=crop" alt="Caffè espresso" loading="lazy">
+                    <div class="gallery__overlay">
+                        <span class="gallery__caption">Il rito del caffè</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -302,6 +314,13 @@
                 <p class="footer__copy">&copy; 2025 A i' centrale. Tutti i diritti riservati.</p>
             </div>
         </div>
+        
+        <!-- Scroll to Top Button -->
+        <button class="footer__scroll-top" aria-label="Torna su">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
     </footer>
 
     <!-- JavaScript -->
