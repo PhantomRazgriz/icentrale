@@ -1,0 +1,308 @@
+/* ==========================================
+   MODERN CSS RESET
+   Based on Josh Comeau's Custom CSS Reset
+   with additions for A i' centrale project
+   ========================================== */
+
+/* ==========================================
+   1. Use a more intuitive box-sizing model
+   ========================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   2. Remove default margins and padding
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   3. Typography & Line Height
+   ========================================== */
+
+html {
+    /* Prevent font size adjustment after orientation changes in iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Set default line-height */
+    line-height: 1.5;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   4. Media Elements
+   ========================================== */
+
+img, picture, video, canvas, svg {
+    /* Make images easier to work with */
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================
+   5. Form Elements
+   ========================================== */
+
+input, button, textarea, select {
+    /* Inherit fonts for inputs and buttons */
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    /* Remove default button styles */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove spinner from number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* ==========================================
+   6. Typography Elements
+   ========================================== */
+
+p, h1, h2, h3, h4, h5, h6 {
+    /* Prevent text overflow */
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Better heading line-height */
+    line-height: 1.2;
+}
+
+/* ==========================================
+   7. Links
+   ========================================== */
+
+a {
+    /* Remove default text decoration */
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus-visible {
+    /* Improve keyboard navigation visibility */
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   8. Lists
+   ========================================== */
+
+ul, ol {
+    list-style: none;
+}
+
+/* ==========================================
+   9. Tables
+   ========================================== */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ==========================================
+   10. Root Stacking Context
+   ========================================== */
+
+#root, #__next {
+    /* Create a root stacking context */
+    isolation: isolate;
+}
+
+/* ==========================================
+   11. Accessibility
+   ========================================== */
+
+/* Remove animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+}
+
+/* ==========================================
+   12. Focus Visible
+   ========================================== */
+
+/* Remove default focus styles for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Add focus styles for keyboard users */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   13. Selection
+   ========================================== */
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ==========================================
+   14. Scrollbar Styling (Webkit)
+   ========================================== */
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gray);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* ==========================================
+   15. Print Styles
+   ========================================== */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+    
+    img {
+        page-break-inside: avoid;
+    }
+    
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* ==========================================
+   16. Dark Mode Support (Future)
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+    /* This will be populated when implementing dark mode */
+}
+
+/* ==========================================
+   17. Mobile Safari Fixes
+   ========================================== */
+
+/* Fix iOS Safari input zoom */
+@media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* Prevent iOS Safari from highlighting tap areas */
+* {
+    -webkit-tap-highlight-color: transparent;
+}

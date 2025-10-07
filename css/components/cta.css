@@ -1,0 +1,479 @@
+/* ==========================================
+   CTA COMPONENT - A i' centrale
+   Call-to-action section with prominent styling
+   ========================================== */
+
+/* ==========================================
+   CTA SECTION
+   ========================================== */
+
+.cta {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        var(--color-primary-dark) 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative pattern overlay */
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Animated background shapes */
+.cta::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-50px, 50px) scale(1.1);
+    }
+}
+
+.cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   CTA CONTENT
+   ========================================== */
+
+.cta__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-12) 0;
+}
+
+@media (min-width: 768px) {
+    .cta__content {
+        padding: var(--space-16) 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .cta__content {
+        padding: var(--space-20) 0;
+    }
+}
+
+/* ==========================================
+   CTA TITLE
+   ========================================== */
+
+.cta__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .cta__title {
+        gap: var(--space-3);
+        margin-bottom: var(--space-8);
+    }
+}
+
+.cta__title .title__script {
+    font-family: var(--font-script);
+    font-size: var(--fs-2xl);
+    color: var(--color-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta__title .title__bold {
+    font-family: var(--font-bold);
+    font-size: var(--fs-3xl);
+    color: var(--color-white);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+    .cta__title .title__script {
+        font-size: var(--fs-3xl);
+    }
+    
+    .cta__title .title__bold {
+        font-size: var(--fs-4xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cta__title .title__script {
+        font-size: var(--fs-4xl);
+    }
+    
+    .cta__title .title__bold {
+        font-size: var(--fs-5xl);
+    }
+}
+
+/* ==========================================
+   CTA TEXT
+   ========================================== */
+
+.cta__text {
+    font-size: var(--fs-lg);
+    color: var(--color-white);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--space-8);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+    .cta__text {
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-10);
+    }
+}
+
+/* ==========================================
+   BUTTONS SYSTEM
+   ========================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .btn {
+        padding: var(--space-5) var(--space-10);
+        font-size: var(--fs-lg);
+    }
+}
+
+/* Primary button */
+.btn--primary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn--primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary button */
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn--secondary:active {
+    transform: translateY(0);
+}
+
+/* Large button variant */
+.btn--large {
+    padding: var(--space-5) var(--space-12);
+    font-size: var(--fs-lg);
+}
+
+@media (min-width: 768px) {
+    .btn--large {
+        padding: var(--space-6) var(--space-16);
+        font-size: var(--fs-xl);
+    }
+}
+
+/* Small button variant */
+.btn--small {
+    padding: var(--space-2) var(--space-6);
+    font-size: var(--fs-sm);
+}
+
+/* Icon in button */
+.btn .icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+/* ==========================================
+   CTA VARIANTS
+   ========================================== */
+
+/* Dark CTA variant */
+.cta--dark {
+    background: linear-gradient(
+        135deg,
+        var(--color-black) 0%,
+        var(--color-gray-dark) 100%
+    );
+}
+
+/* Light CTA variant */
+.cta--light {
+    background: linear-gradient(
+        135deg,
+        var(--color-cream) 0%,
+        var(--color-white) 100%
+    );
+}
+
+.cta--light .cta__title .title__script,
+.cta--light .cta__title .title__bold,
+.cta--light .cta__text {
+    color: var(--color-text-primary);
+    text-shadow: none;
+}
+
+.cta--light .btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.cta--light .btn--primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.cta--light .btn--secondary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.cta--light .btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Compact CTA variant */
+.cta--compact .cta__content {
+    padding: var(--space-8) 0;
+}
+
+@media (min-width: 768px) {
+    .cta--compact .cta__content {
+        padding: var(--space-12) 0;
+    }
+}
+
+/* ==========================================
+   BUTTON STATES
+   ========================================== */
+
+/* Disabled state */
+.btn:disabled,
+.btn--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Loading state */
+.btn--loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn--loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Focus state */
+.btn:focus-visible {
+    outline: 3px solid var(--color-white);
+    outline-offset: 4px;
+}
+
+.cta--light .btn:focus-visible {
+    outline-color: var(--color-primary);
+}
+
+/* ==========================================
+   BUTTON GROUP
+   ========================================== */
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .btn-group {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-6);
+    }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+
+.cta__content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cta__content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .btn {
+        border-width: 3px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .cta::after {
+        animation: none;
+    }
+    
+    .cta__content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn--loading::after {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+/* Extra small devices */
+@media (max-width: 374px) {
+    .btn {
+        padding: var(--space-3) var(--space-6);
+        font-size: var(--fs-sm);
+    }
+    
+    .cta__title .title__script {
+        font-size: var(--fs-xl);
+    }
+    
+    .cta__title .title__bold {
+        font-size: var(--fs-2xl);
+    }
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+    .cta::before,
+    .cta::after {
+        display: none;
+    }
+    
+    .cta {
+        background: var(--color-cream);
+    }
+    
+    .cta__title .title__script,
+    .cta__title .title__bold,
+    .cta__text {
+        color: var(--color-text-primary);
+        text-shadow: none;
+    }
+    
+    .btn {
+        border: 2px solid var(--color-text-primary);
+        color: var(--color-text-primary);
+    }
+}

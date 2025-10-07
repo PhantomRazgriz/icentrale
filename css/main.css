@@ -1,0 +1,462 @@
+/* ==========================================
+   MAIN CSS - A i' centrale
+   Central import file for all stylesheets
+   ========================================== */
+
+/* ==========================================
+   1. BASE STYLES
+   ========================================== */
+
+/* CSS Variables - Must be first */
+@import url('variables.css');
+
+/* CSS Reset - Normalize browser defaults */
+@import url('reset.css');
+
+/* Typography System */
+@import url('typography.css');
+
+/* Layout System */
+@import url('layout.css');
+
+/* ==========================================
+   2. COMPONENTS
+   ========================================== */
+
+/* Header & Navigation */
+@import url('components/header.css');
+
+/* Hero Section */
+@import url('components/hero.css');
+
+/* About Section */
+@import url('components/about.css');
+
+/* Menu Preview Section */
+@import url('components/menu-preview.css');
+
+/* Gallery Section */
+@import url('components/gallery.css');
+
+/* CTA Section */
+@import url('components/cta.css');
+
+/* Footer */
+@import url('components/footer.css');
+
+/* ==========================================
+   3. GLOBAL OVERRIDES & UTILITIES
+   ========================================== */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent scroll when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Selection color override for consistency */
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ==========================================
+   4. MAIN CONTENT WRAPPER
+   ========================================== */
+
+main {
+    position: relative;
+    z-index: var(--z-base);
+}
+
+/* ==========================================
+   5. SKIP TO MAIN CONTENT
+   ========================================== */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-4) var(--space-6);
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-md) 0;
+    font-weight: var(--fw-semibold);
+    z-index: var(--z-tooltip);
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==========================================
+   6. SCROLL REVEAL ANIMATIONS
+   ========================================== */
+
+/* Base class for elements that animate on scroll */
+.scroll-reveal {
+    /* Removed initial opacity: 0 and transform for immediate visibility */
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Fade in only (no movement) */
+.fade-in {
+    /* Removed initial opacity: 0 for immediate visibility */
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+}
+
+/* Slide from left */
+.slide-left {
+    /* Removed initial opacity: 0 and transform for immediate visibility */
+}
+
+.slide-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Slide from right */
+.slide-right {
+    /* Removed initial opacity: 0 and transform for immediate visibility */
+}
+
+.slide-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Scale animation */
+.scale-in {
+    /* Removed initial opacity: 0 and transform for immediate visibility */
+}
+
+.scale-in.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* ==========================================
+   7. UTILITY CLASSES
+   ========================================== */
+
+/* Visibility utilities */
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Pointer events */
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.pointer-events-auto {
+    pointer-events: auto;
+}
+
+/* Cursor utilities */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+/* User select */
+.select-none {
+    user-select: none;
+}
+
+.select-text {
+    user-select: text;
+}
+
+.select-all {
+    user-select: all;
+}
+
+/* Border radius utilities */
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+    border-radius: var(--radius-xl);
+}
+
+.rounded-2xl {
+    border-radius: var(--radius-2xl);
+}
+
+.rounded-full {
+    border-radius: var(--radius-full);
+}
+
+/* Shadow utilities */
+.shadow-sm {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+    box-shadow: var(--shadow-xl);
+}
+
+.shadow-2xl {
+    box-shadow: var(--shadow-2xl);
+}
+
+.shadow-none {
+    box-shadow: none;
+}
+
+/* Background utilities */
+.bg-white {
+    background-color: var(--color-white);
+}
+
+.bg-cream {
+    background-color: var(--color-cream);
+}
+
+.bg-black {
+    background-color: var(--color-black);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+/* ==========================================
+   8. LOADING STATES
+   ========================================== */
+
+.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 4px solid var(--color-cream);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================
+   9. PRELOAD ANIMATIONS
+   ========================================== */
+
+/* Page loader */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.page-loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-loader__spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--color-cream);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ==========================================
+   10. ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+
+/* Focus visible styling for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-reveal,
+    .fade-in,
+    .slide-left,
+    .slide-right,
+    .scale-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ==========================================
+   11. PRINT STYLES
+   ========================================== */
+
+@media print {
+    /* Hide non-essential elements */
+    .header,
+    .footer__social,
+    .footer__scroll-top,
+    .page-loader,
+    .skip-link {
+        display: none !important;
+    }
+    
+    /* Reset backgrounds */
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Ensure links are visible */
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    
+    /* Show URLs after links */
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+    
+    /* Avoid page breaks inside elements */
+    img,
+    blockquote,
+    pre,
+    .card,
+    .feature,
+    .menu__card {
+        page-break-inside: avoid;
+    }
+    
+    /* Ensure headings don't break */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+}
+
+/* ==========================================
+   12. RESPONSIVE HELPERS
+   ========================================== */
+
+/* Mobile only */
+@media (max-width: 767px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+/* Desktop only */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+/* Tablet only */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .mobile-only,
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+/* ==========================================
+   13. DEBUG UTILITIES (remove in production)
+   ========================================== */
+
+/* 
+.debug * {
+    outline: 1px solid red;
+}
+*/
+
+/* ==========================================
+   END OF MAIN CSS
+   ========================================== */

@@ -1,0 +1,452 @@
+/* ==========================================
+   MENU PREVIEW COMPONENT - A i' centrale
+   4-column grid showcasing menu categories
+   ========================================== */
+
+/* ==========================================
+   MENU PREVIEW SECTION
+   ========================================== */
+
+.menu-preview {
+    background-color: var(--color-bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background pattern */
+.menu-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, var(--color-primary-alpha) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, var(--color-primary-alpha) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu-preview .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   MENU GRID
+   ========================================== */
+
+.menu__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .menu__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================
+   MENU CARD
+   ========================================== */
+
+.menu__card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect */
+.menu__card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+/* Subtle gradient overlay on hover */
+.menu__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary-alpha) 0%,
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: 0;
+}
+
+.menu__card:hover::before {
+    opacity: 1;
+}
+
+/* Ensure content stays above overlay */
+.menu__card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   MENU CARD ICON
+   ========================================== */
+
+.menu__card-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        var(--color-primary-light) 100%
+    );
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-primary);
+}
+
+@media (min-width: 768px) {
+    .menu__card-icon {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+/* Icon hover animation */
+.menu__card:hover .menu__card-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 15px 40px -10px rgba(232, 85, 46, 0.5);
+}
+
+/* Icon SVG */
+.menu__card-icon .icon {
+    width: 40px;
+    height: 40px;
+    stroke-width: 1.5;
+}
+
+@media (min-width: 768px) {
+    .menu__card-icon .icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* ==========================================
+   MENU CARD TITLE
+   ========================================== */
+
+.menu__card-title {
+    font-family: var(--font-bold);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    margin: 0;
+    transition: color var(--transition-fast);
+}
+
+@media (min-width: 768px) {
+    .menu__card-title {
+        font-size: var(--fs-2xl);
+    }
+}
+
+.menu__card:hover .menu__card-title {
+    color: var(--color-primary);
+}
+
+/* ==========================================
+   MENU CARD TEXT
+   ========================================== */
+
+.menu__card-text {
+    font-size: var(--fs-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-relaxed);
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .menu__card-text {
+        font-size: var(--fs-base);
+    }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+
+.menu__card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, 
+                box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.menu__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger effect */
+.menu__card:nth-child(1).is-visible {
+    transition-delay: 0.1s;
+}
+
+.menu__card:nth-child(2).is-visible {
+    transition-delay: 0.2s;
+}
+
+.menu__card:nth-child(3).is-visible {
+    transition-delay: 0.3s;
+}
+
+.menu__card:nth-child(4).is-visible {
+    transition-delay: 0.4s;
+}
+
+/* ==========================================
+   MENU VARIANTS
+   ========================================== */
+
+/* Compact variant with less padding */
+.menu-preview--compact .menu__card {
+    padding: var(--space-6);
+}
+
+.menu-preview--compact .menu__card-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.menu-preview--compact .menu__card-icon .icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Dark variant */
+.menu-preview--dark {
+    background-color: var(--color-bg-dark);
+}
+
+.menu-preview--dark .menu__card {
+    background-color: var(--color-gray-dark);
+}
+
+.menu-preview--dark .menu__card-title {
+    color: var(--color-white);
+}
+
+.menu-preview--dark .menu__card-text {
+    color: var(--color-gray-light);
+}
+
+/* Outlined variant */
+.menu__card--outlined {
+    background: transparent;
+    border: 2px solid var(--color-border);
+}
+
+.menu__card--outlined:hover {
+    background: var(--color-white);
+}
+
+/* ==========================================
+   INTERACTIVE STATES
+   ========================================== */
+
+/* Focus state for keyboard navigation */
+.menu__card:focus-within {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* Active/pressed state */
+.menu__card:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+/* ==========================================
+   CLICKABLE CARDS (if wrapped in links)
+   ========================================== */
+
+.menu__card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.menu__card-link:focus {
+    outline: none;
+}
+
+/* ==========================================
+   BADGE/TAG (optional feature)
+   ========================================== */
+
+.menu__card-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    z-index: 2;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+/* Ensure sufficient contrast */
+@media (prefers-contrast: high) {
+    .menu__card {
+        border-width: 3px;
+    }
+    
+    .menu__card-icon {
+        border: 2px solid var(--color-white);
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .menu__card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .menu__card:hover {
+        transform: none;
+    }
+    
+    .menu__card:hover .menu__card-icon {
+        transform: none;
+    }
+    
+    .menu__card::before {
+        transition: none;
+    }
+}
+
+/* ==========================================
+   LOADING STATE
+   ========================================== */
+
+.menu__card--loading {
+    pointer-events: none;
+}
+
+.menu__card--loading .menu__card-icon {
+    background: linear-gradient(
+        90deg,
+        var(--color-gray) 0%,
+        var(--color-gray-light) 50%,
+        var(--color-gray) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.menu__card--loading .menu__card-title,
+.menu__card--loading .menu__card-text {
+    background: var(--color-gray-lighter);
+    color: transparent;
+    border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+/* Small mobile devices */
+@media (max-width: 374px) {
+    .menu__card {
+        padding: var(--space-6);
+    }
+    
+    .menu__card-icon {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .menu__card-icon .icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Tablet portrait - adjust 2 column layout */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .menu__grid {
+        gap: var(--space-6);
+    }
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+    .menu-preview::before {
+        display: none;
+    }
+    
+    .menu__card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+    }
+    
+    .menu__card::before {
+        display: none;
+    }
+}

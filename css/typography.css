@@ -1,0 +1,499 @@
+/* ==========================================
+   TYPOGRAPHY SYSTEM - A i' centrale
+   Mobile-first approach with responsive scaling
+   ========================================== */
+
+/* ==========================================
+   FONT IMPORTS
+   ========================================== */
+
+/* Google Fonts - Pacifico (Script) */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Google Fonts - Bebas Neue (Bold Display) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* ==========================================
+   BASE TYPOGRAPHY
+   ========================================== */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-normal);
+    line-height: var(--lh-normal);
+    color: var(--color-text-primary);
+    letter-spacing: var(--ls-normal);
+}
+
+/* ==========================================
+   HEADINGS BASE
+   ========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+}
+
+h1 {
+    font-size: var(--fs-4xl);
+}
+
+h2 {
+    font-size: var(--fs-3xl);
+}
+
+h3 {
+    font-size: var(--fs-2xl);
+}
+
+h4 {
+    font-size: var(--fs-xl);
+}
+
+h5 {
+    font-size: var(--fs-lg);
+}
+
+h6 {
+    font-size: var(--fs-base);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    h1 {
+        font-size: var(--fs-5xl);
+    }
+    
+    h2 {
+        font-size: var(--fs-4xl);
+    }
+    
+    h3 {
+        font-size: var(--fs-3xl);
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: var(--fs-6xl);
+    }
+    
+    h2 {
+        font-size: var(--fs-5xl);
+    }
+}
+
+/* ==========================================
+   BRAND TYPOGRAPHY SYSTEM
+   ========================================== */
+
+/* Logo Text - Script + Bold combination */
+.logo__script {
+    font-family: var(--font-script);
+    font-size: var(--fs-2xl);
+    color: var(--color-primary);
+    font-weight: var(--fw-normal);
+    letter-spacing: var(--ls-normal);
+    display: inline-block;
+}
+
+.logo__bold {
+    font-family: var(--font-bold);
+    font-size: var(--fs-2xl);
+    color: var(--color-primary);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .logo__script {
+        font-size: var(--fs-3xl);
+    }
+    
+    .logo__bold {
+        font-size: var(--fs-3xl);
+    }
+}
+
+/* Section Titles - Mixed Typography */
+.section__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+}
+
+.section__title--center {
+    align-items: center;
+    text-align: center;
+}
+
+.title__script {
+    font-family: var(--font-script);
+    font-size: var(--fs-2xl);
+    color: var(--color-primary);
+    font-weight: var(--fw-normal);
+    letter-spacing: var(--ls-normal);
+}
+
+.title__bold {
+    font-family: var(--font-bold);
+    font-size: var(--fs-4xl);
+    color: var(--color-text-primary);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    line-height: var(--lh-tight);
+}
+
+@media (min-width: 768px) {
+    .title__script {
+        font-size: var(--fs-3xl);
+    }
+    
+    .title__bold {
+        font-size: var(--fs-5xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section__title {
+        margin-bottom: var(--space-12);
+    }
+    
+    .title__script {
+        font-size: var(--fs-4xl);
+    }
+    
+    .title__bold {
+        font-size: var(--fs-6xl);
+    }
+}
+
+/* Section Subtitle */
+.section__subtitle {
+    font-size: var(--fs-lg);
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-8);
+    line-height: var(--lh-relaxed);
+}
+
+@media (min-width: 768px) {
+    .section__subtitle {
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-12);
+    }
+}
+
+/* ==========================================
+   BODY TEXT
+   ========================================== */
+
+p {
+    margin-bottom: var(--space-4);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-secondary);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lead paragraph */
+.lead {
+    font-size: var(--fs-lg);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+    .lead {
+        font-size: var(--fs-xl);
+    }
+}
+
+/* Small text */
+.text-small {
+    font-size: var(--fs-sm);
+}
+
+.text-xs {
+    font-size: var(--fs-xs);
+}
+
+/* ==========================================
+   TEXT UTILITIES
+   ========================================== */
+
+/* Font weights */
+.font-normal {
+    font-weight: var(--fw-normal);
+}
+
+.font-medium {
+    font-weight: var(--fw-medium);
+}
+
+.font-semibold {
+    font-weight: var(--fw-semibold);
+}
+
+.font-bold {
+    font-weight: var(--fw-bold);
+}
+
+/* Text alignment */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Text colors */
+.text-primary {
+    color: var(--color-text-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-brand {
+    color: var(--color-primary);
+}
+
+.text-white {
+    color: var(--color-white);
+}
+
+/* Text transform */
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Letter spacing */
+.tracking-tight {
+    letter-spacing: var(--ls-tight);
+}
+
+.tracking-normal {
+    letter-spacing: var(--ls-normal);
+}
+
+.tracking-wide {
+    letter-spacing: var(--ls-wide);
+}
+
+.tracking-wider {
+    letter-spacing: var(--ls-wider);
+}
+
+.tracking-widest {
+    letter-spacing: var(--ls-widest);
+}
+
+/* ==========================================
+   SPECIAL TEXT ELEMENTS
+   ========================================== */
+
+/* Emphasis */
+strong, b {
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* Links */
+a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Inline code */
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    background-color: var(--color-cream);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-primary-dark);
+}
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: var(--space-4);
+    margin: var(--space-6) 0;
+    font-style: italic;
+    color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+    blockquote {
+        padding-left: var(--space-6);
+        margin: var(--space-8) 0;
+    }
+}
+
+/* ==========================================
+   HERO TYPOGRAPHY
+   ========================================== */
+
+.hero__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+}
+
+.hero__title-script {
+    font-family: var(--font-script);
+    font-size: var(--fs-4xl);
+    color: var(--color-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title-bold {
+    font-family: var(--font-bold);
+    font-size: var(--fs-5xl);
+    color: var(--color-white);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero__tagline {
+    font-size: var(--fs-lg);
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    font-weight: var(--fw-medium);
+    margin-bottom: var(--space-8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    .hero__title-script {
+        font-size: var(--fs-5xl);
+    }
+    
+    .hero__title-bold {
+        font-size: var(--fs-6xl);
+    }
+    
+    .hero__tagline {
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-10);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero__title-script {
+        font-size: var(--fs-6xl);
+    }
+    
+    .hero__title-bold {
+        font-size: var(--fs-7xl);
+    }
+    
+    .hero__tagline {
+        font-size: var(--fs-2xl);
+    }
+}
+
+/* ==========================================
+   FOOTER TYPOGRAPHY
+   ========================================== */
+
+.footer__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+}
+
+.footer__subtitle {
+    font-family: var(--font-bold);
+    font-size: var(--fs-lg);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    margin-bottom: var(--space-4);
+    color: var(--color-text-primary);
+}
+
+.footer__tagline {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.footer__copy {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE TEXT SIZES
+   ========================================== */
+
+@media (min-width: 768px) {
+    body {
+        font-size: var(--fs-lg);
+    }
+}
+
+/* ==========================================
+   PRINT TYPOGRAPHY
+   ========================================== */
+
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 {
+        font-size: 24pt;
+    }
+    
+    h2 {
+        font-size: 20pt;
+    }
+    
+    h3 {
+        font-size: 16pt;
+    }
+}

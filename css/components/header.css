@@ -1,0 +1,414 @@
+/* ==========================================
+   HEADER COMPONENT - A i' centrale
+   Sticky header with mobile menu
+   ========================================== */
+
+/* ==========================================
+   HEADER BASE
+   ========================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    z-index: var(--z-sticky);
+    transition: all var(--transition-base);
+}
+
+/* Scrolled state */
+.header--scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   HEADER CONTENT
+   ========================================== */
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height-mobile);
+    gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+    .header__content {
+        height: var(--header-height-desktop);
+    }
+}
+
+/* ==========================================
+   LOGO
+   ========================================== */
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.header__logo:hover {
+    transform: scale(1.02);
+}
+
+.header__logo .logo__script {
+    font-size: var(--fs-xl);
+}
+
+.header__logo .logo__bold {
+    font-size: var(--fs-xl);
+}
+
+@media (min-width: 768px) {
+    .header__logo .logo__script {
+        font-size: var(--fs-2xl);
+    }
+    
+    .header__logo .logo__bold {
+        font-size: var(--fs-2xl);
+    }
+}
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+.header__nav {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .header__nav {
+        display: block;
+    }
+}
+
+/* Navigation list */
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    list-style: none;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    display: block;
+    padding: var(--space-2) 0;
+    color: var(--color-text-primary);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+/* Hover effect - underline animation */
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+.nav__link:hover {
+    color: var(--color-primary);
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+/* Active state */
+.nav__link--active {
+    color: var(--color-primary);
+}
+
+.nav__link--active::after {
+    width: 100%;
+}
+
+/* ==========================================
+   BURGER MENU (Mobile)
+   ========================================== */
+
+.header__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    gap: 6px;
+    z-index: var(--z-modal);
+}
+
+@media (min-width: 1024px) {
+    .header__burger {
+        display: none;
+    }
+}
+
+/* Burger lines */
+.burger__line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    transition: all var(--transition-base);
+    border-radius: var(--radius-full);
+}
+
+/* Burger animation when open */
+.header__burger--active .burger__line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__burger--active .burger__line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.header__burger--active .burger__line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================
+   MOBILE MENU
+   ========================================== */
+
+.header__nav--mobile {
+    display: block;
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-white);
+    padding: var(--space-8) var(--container-padding-mobile);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    overflow-y: auto;
+    z-index: var(--z-fixed);
+}
+
+.header__nav--mobile.nav--open {
+    transform: translateX(0);
+}
+
+/* Mobile navigation list */
+.header__nav--mobile .nav__list {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+}
+
+.header__nav--mobile .nav__item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header__nav--mobile .nav__link {
+    padding: var(--space-5) 0;
+    font-size: var(--fs-lg);
+}
+
+/* Mobile link - no underline animation, just color */
+.header__nav--mobile .nav__link::after {
+    display: none;
+}
+
+.header__nav--mobile .nav__link:hover {
+    padding-left: var(--space-2);
+}
+
+/* ==========================================
+   OVERLAY (Mobile menu backdrop)
+   ========================================== */
+
+.header__overlay {
+    display: none;
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-overlay);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.header__overlay--visible {
+    display: block;
+    opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .header__overlay {
+        display: none !important;
+    }
+}
+
+/* ==========================================
+   BODY SCROLL LOCK (when mobile menu open)
+   ========================================== */
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    body.menu-open {
+        overflow: auto;
+    }
+}
+
+/* ==========================================
+   HEADER SPACING FOR CONTENT
+   ========================================== */
+
+/* Add padding to body to account for fixed header */
+body {
+    padding-top: var(--header-height-mobile);
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding-top: var(--header-height-desktop);
+    }
+}
+
+/* ==========================================
+   HEADER VARIANTS
+   ========================================== */
+
+/* Transparent header (for hero overlap) */
+.header--transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.header--transparent .header__logo .logo__script,
+.header--transparent .header__logo .logo__bold {
+    color: var(--color-white);
+}
+
+.header--transparent .nav__link {
+    color: var(--color-white);
+}
+
+.header--transparent .burger__line {
+    background-color: var(--color-white);
+}
+
+/* When scrolled, transparent header becomes solid */
+.header--transparent.header--scrolled {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+}
+
+.header--transparent.header--scrolled .header__logo .logo__script,
+.header--transparent.header--scrolled .header__logo .logo__bold {
+    color: var(--color-primary);
+}
+
+.header--transparent.header--scrolled .nav__link {
+    color: var(--color-text-primary);
+}
+
+.header--transparent.header--scrolled .burger__line {
+    background-color: var(--color-text-primary);
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+/* Focus visible for keyboard navigation */
+.nav__link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+.header__burger:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-3) var(--space-6);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: var(--fw-semibold);
+    z-index: var(--z-tooltip);
+    transition: top var(--transition-fast);
+}
+
+.skip-to-main:focus {
+    top: var(--space-4);
+    left: var(--space-4);
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    animation: slideDown var(--transition-base) ease-out;
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .header {
+        animation: none;
+    }
+    
+    .header__burger,
+    .burger__line,
+    .nav__link::after,
+    .header__nav--mobile {
+        transition: none;
+    }
+}

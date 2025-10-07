@@ -1,0 +1,257 @@
+:root {
+    /* ==========================================
+       COLORS - Palette Brand A i' centrale
+       ========================================== */
+    
+    /* Primary Colors */
+    --color-primary: #E8552E;
+    --color-primary-dark: #D94D28;
+    --color-primary-light: #FF6B42;
+    --color-primary-alpha: rgba(232, 85, 46, 0.1);
+    
+    /* Neutral Colors */
+    --color-white: #FFFFFF;
+    --color-cream: #F5F3E8;
+    --color-cream-dark: #E8E6D8;
+    --color-black: #1A1A1A;
+    --color-gray-dark: #2B2B2B;
+    --color-gray: #8B8B8B;
+    --color-gray-light: #A5A5A5;
+    --color-gray-lighter: #D9D9D9;
+    
+    /* Semantic Colors */
+    --color-text-primary: var(--color-black);
+    --color-text-secondary: var(--color-gray-dark);
+    --color-text-muted: var(--color-gray);
+    --color-text-light: var(--color-white);
+    
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-cream);
+    --color-bg-dark: var(--color-black);
+    
+    --color-border: var(--color-gray-lighter);
+    --color-border-dark: var(--color-gray-dark);
+    
+    /* ==========================================
+       TYPOGRAPHY
+       ========================================== */
+    
+    /* Font Families */
+    --font-script: 'Pacifico', cursive;
+    --font-bold: 'Bebas Neue', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Font Sizes - Mobile First */
+    --fs-xs: 0.75rem;      /* 12px */
+    --fs-sm: 0.875rem;     /* 14px */
+    --fs-base: 1rem;       /* 16px */
+    --fs-lg: 1.125rem;     /* 18px */
+    --fs-xl: 1.25rem;      /* 20px */
+    --fs-2xl: 1.5rem;      /* 24px */
+    --fs-3xl: 1.875rem;    /* 30px */
+    --fs-4xl: 2.25rem;     /* 36px */
+    --fs-5xl: 3rem;        /* 48px */
+    --fs-6xl: 3.75rem;     /* 60px */
+    --fs-7xl: 4.5rem;      /* 72px */
+    
+    /* Font Weights */
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    
+    /* Line Heights */
+    --lh-tight: 1.2;
+    --lh-snug: 1.375;
+    --lh-normal: 1.5;
+    --lh-relaxed: 1.625;
+    --lh-loose: 2;
+    
+    /* Letter Spacing */
+    --ls-tight: -0.025em;
+    --ls-normal: 0;
+    --ls-wide: 0.025em;
+    --ls-wider: 0.05em;
+    --ls-widest: 0.1em;
+    
+    /* ==========================================
+       SPACING - Mobile First
+       ========================================== */
+    
+    --space-1: 0.25rem;    /* 4px */
+    --space-2: 0.5rem;     /* 8px */
+    --space-3: 0.75rem;    /* 12px */
+    --space-4: 1rem;       /* 16px */
+    --space-5: 1.25rem;    /* 20px */
+    --space-6: 1.5rem;     /* 24px */
+    --space-8: 2rem;       /* 32px */
+    --space-10: 2.5rem;    /* 40px */
+    --space-12: 3rem;      /* 48px */
+    --space-16: 4rem;      /* 64px */
+    --space-20: 5rem;      /* 80px */
+    --space-24: 6rem;      /* 96px */
+    --space-32: 8rem;      /* 128px */
+    
+    /* Section Spacing - Responsive */
+    --section-padding-mobile: var(--space-12);
+    --section-padding-tablet: var(--space-16);
+    --section-padding-desktop: var(--space-20);
+    
+    /* ==========================================
+       LAYOUT
+       ========================================== */
+    
+    /* Container Widths */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+    
+    /* Container Padding - Responsive */
+    --container-padding-mobile: var(--space-4);
+    --container-padding-tablet: var(--space-6);
+    --container-padding-desktop: var(--space-8);
+    
+    /* Grid Gaps - Responsive */
+    --gap-mobile: var(--space-4);
+    --gap-tablet: var(--space-6);
+    --gap-desktop: var(--space-8);
+    
+    /* Header Height */
+    --header-height-mobile: 64px;
+    --header-height-desktop: 80px;
+    
+    /* ==========================================
+       BORDERS & RADIUS
+       ========================================== */
+    
+    --radius-sm: 0.25rem;   /* 4px */
+    --radius-md: 0.5rem;    /* 8px */
+    --radius-lg: 0.75rem;   /* 12px */
+    --radius-xl: 1rem;      /* 16px */
+    --radius-2xl: 1.5rem;   /* 24px */
+    --radius-full: 9999px;
+    
+    --border-width: 1px;
+    --border-width-thick: 2px;
+    
+    /* ==========================================
+       SHADOWS
+       ========================================== */
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    
+    /* Brand Shadow - Orange glow */
+    --shadow-primary: 0 10px 30px -5px rgba(232, 85, 46, 0.3);
+    
+    /* ==========================================
+       TRANSITIONS & ANIMATIONS
+       ========================================== */
+    
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+    --transition-slower: 500ms ease-in-out;
+    
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* ==========================================
+       Z-INDEX LAYERS
+       ========================================== */
+    
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-overlay: 40;
+    --z-modal: 50;
+    --z-popover: 60;
+    --z-tooltip: 70;
+    
+    /* ==========================================
+       BREAKPOINTS (for reference in JS)
+       ========================================== */
+    
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}
+
+/* ==========================================
+   RESPONSIVE TYPOGRAPHY SCALING
+   ========================================== */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    :root {
+        --fs-3xl: 2.25rem;     /* 36px */
+        --fs-4xl: 3rem;        /* 48px */
+        --fs-5xl: 3.75rem;     /* 60px */
+        --fs-6xl: 4.5rem;      /* 72px */
+        --fs-7xl: 6rem;        /* 96px */
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    :root {
+        --fs-4xl: 3.5rem;      /* 56px */
+        --fs-5xl: 4.5rem;      /* 72px */
+        --fs-6xl: 5.5rem;      /* 88px */
+        --fs-7xl: 7rem;        /* 112px */
+    }
+}
+
+/* ==========================================
+   UTILITY CLASSES FOR SPACING
+   ========================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: var(--container-padding-tablet);
+        padding-right: var(--container-padding-tablet);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: var(--container-padding-desktop);
+        padding-right: var(--container-padding-desktop);
+    }
+}
+
+/* ==========================================
+   THEME VARIANTS (for future dark mode)
+   ========================================== */
+
+[data-theme="dark"] {
+    --color-text-primary: var(--color-white);
+    --color-text-secondary: var(--color-gray-light);
+    --color-text-muted: var(--color-gray);
+    
+    --color-bg-primary: var(--color-black);
+    --color-bg-secondary: var(--color-gray-dark);
+    
+    --color-border: var(--color-gray);
+}
