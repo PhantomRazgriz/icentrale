@@ -8,7 +8,7 @@
    ========================================== */
 
 .menu-preview {
-    background-color: var(--color-bg-secondary);
+    background: linear-gradient(180deg, var(--color-dark-800) 0%, var(--color-dark-900) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -22,8 +22,28 @@
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 20% 30%, var(--color-primary-alpha) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, var(--color-primary-alpha) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(232, 85, 46, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(232, 85, 46, 0.1) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Animated background element */
+.menu-preview::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle,
+        rgba(232, 85, 46, 0.08) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    filter: blur(100px);
     z-index: 0;
     pointer-events: none;
 }
@@ -61,7 +81,9 @@
    ========================================== */
 
 .menu__card {
-    background: var(--color-white);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--radius-xl);
     padding: var(--space-8);
     display: flex;
@@ -69,18 +91,23 @@
     align-items: center;
     text-align: center;
     gap: var(--space-4);
-    box-shadow: var(--shadow-md);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 12px 48px rgba(0, 0, 0, 0.2);
     transition: all var(--transition-base);
-    border: 2px solid transparent;
+    border: 1px solid var(--glass-border);
     position: relative;
     overflow: hidden;
 }
 
 /* Hover effect */
 .menu__card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary);
+    transform: translateY(-12px);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 25px 70px rgba(232, 85, 46, 0.3);
+    border-color: rgba(232, 85, 46, 0.5);
+    background: rgba(26, 26, 26, 0.9);
 }
 
 /* Subtle gradient overlay on hover */
@@ -93,7 +120,7 @@
     bottom: 0;
     background: linear-gradient(
         135deg,
-        var(--color-primary-alpha) 0%,
+        rgba(232, 85, 46, 0.2) 0%,
         transparent 60%
     );
     opacity: 0;
@@ -130,7 +157,9 @@
     color: var(--color-white);
     flex-shrink: 0;
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-primary);
+    box-shadow: 
+        0 8px 25px rgba(232, 85, 46, 0.4),
+        0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -142,8 +171,10 @@
 
 /* Icon hover animation */
 .menu__card:hover .menu__card-icon {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 15px 40px -10px rgba(232, 85, 46, 0.5);
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 
+        0 15px 40px rgba(232, 85, 46, 0.6),
+        0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 /* Icon SVG */
@@ -151,6 +182,7 @@
     width: 40px;
     height: 40px;
     stroke-width: 1.5;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 @media (min-width: 768px) {
@@ -168,7 +200,7 @@
     font-family: var(--font-bold);
     font-size: var(--fs-xl);
     font-weight: var(--fw-bold);
-    color: var(--color-text-primary);
+    color: var(--color-white);
     text-transform: uppercase;
     letter-spacing: var(--ls-wide);
     margin: 0;
@@ -182,7 +214,7 @@
 }
 
 .menu__card:hover .menu__card-title {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
 }
 
 /* ==========================================
@@ -191,7 +223,7 @@
 
 .menu__card-text {
     font-size: var(--fs-sm);
-    color: var(--color-text-secondary);
+    color: var(--color-gray-light);
     line-height: var(--lh-relaxed);
     margin: 0;
 }
@@ -256,11 +288,15 @@
 
 /* Dark variant */
 .menu-preview--dark {
-    background-color: var(--color-bg-dark);
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-900) 100%);
 }
 
 .menu-preview--dark .menu__card {
-    background-color: var(--color-gray-dark);
+    background: var(--glass-bg-strong);
+}
+
+.menu-preview--dark .menu__card:hover {
+    background: rgba(26, 26, 26, 0.95);
 }
 
 .menu-preview--dark .menu__card-title {
@@ -274,11 +310,11 @@
 /* Outlined variant */
 .menu__card--outlined {
     background: transparent;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--glass-border);
 }
 
 .menu__card--outlined:hover {
-    background: var(--color-white);
+    background: var(--glass-bg);
 }
 
 /* ==========================================
@@ -318,7 +354,7 @@
     position: absolute;
     top: var(--space-4);
     right: var(--space-4);
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     color: var(--color-white);
     font-size: var(--fs-xs);
     font-weight: var(--fw-bold);
@@ -327,6 +363,7 @@
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-full);
     z-index: 2;
+    box-shadow: 0 4px 12px rgba(232, 85, 46, 0.4);
 }
 
 /* ==========================================
@@ -366,6 +403,10 @@
     .menu__card::before {
         transition: none;
     }
+    
+    .menu-preview::after {
+        animation: none;
+    }
 }
 
 /* ==========================================
@@ -379,9 +420,9 @@
 .menu__card--loading .menu__card-icon {
     background: linear-gradient(
         90deg,
-        var(--color-gray) 0%,
-        var(--color-gray-light) 50%,
-        var(--color-gray) 100%
+        var(--color-dark-600) 0%,
+        var(--color-dark-700) 50%,
+        var(--color-dark-600) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
@@ -389,7 +430,7 @@
 
 .menu__card--loading .menu__card-title,
 .menu__card--loading .menu__card-text {
-    background: var(--color-gray-lighter);
+    background: var(--color-dark-600);
     color: transparent;
     border-radius: var(--radius-sm);
 }
@@ -436,7 +477,8 @@
    ========================================== */
 
 @media print {
-    .menu-preview::before {
+    .menu-preview::before,
+    .menu-preview::after {
         display: none;
     }
     
@@ -444,9 +486,15 @@
         break-inside: avoid;
         box-shadow: none;
         border: 1px solid var(--color-border);
+        background: white;
     }
     
     .menu__card::before {
         display: none;
+    }
+    
+    .menu__card-title,
+    .menu__card-text {
+        color: black;
     }
 }

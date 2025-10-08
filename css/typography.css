@@ -1,6 +1,7 @@
 /* ==========================================
    TYPOGRAPHY SYSTEM - A i' centrale
    Mobile-first approach with responsive scaling
+   Dark theme optimized
    ========================================== */
 
 /* ==========================================
@@ -24,6 +25,8 @@ body {
     line-height: var(--lh-normal);
     color: var(--color-text-primary);
     letter-spacing: var(--ls-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================
@@ -91,37 +94,28 @@ h6 {
    BRAND TYPOGRAPHY SYSTEM
    ========================================== */
 
-/* Logo Text - Script + Bold combination */
-.logo__script {
-    font-family: var(--font-script);
-    font-size: var(--fs-2xl);
-    color: var(--color-primary);
-    font-weight: var(--fw-normal);
-    letter-spacing: var(--ls-normal);
-    display: inline-block;
-}
-
-.logo__bold {
+/* Logo Text - All bold uppercase */
+.logo__text {
     font-family: var(--font-bold);
-    font-size: var(--fs-2xl);
-    color: var(--color-primary);
+    font-size: var(--fs-xl);
+    color: var(--color-white);
     font-weight: var(--fw-bold);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     display: inline-block;
+    line-height: 1;
 }
 
 @media (min-width: 768px) {
-    .logo__script {
-        font-size: var(--fs-3xl);
-    }
-    
-    .logo__bold {
-        font-size: var(--fs-3xl);
+    .logo__text {
+        font-size: var(--fs-2xl);
     }
 }
 
-/* Section Titles - Mixed Typography */
+/* ==========================================
+   SECTION TITLES - Mixed Typography
+   ========================================== */
+
 .section__title {
     display: flex;
     flex-direction: column;
@@ -140,6 +134,7 @@ h6 {
     color: var(--color-primary);
     font-weight: var(--fw-normal);
     letter-spacing: var(--ls-normal);
+    text-shadow: 0 0 20px rgba(232, 85, 46, 0.3);
 }
 
 .title__bold {
@@ -338,17 +333,20 @@ a {
 }
 
 a:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-primary-light);
 }
 
 /* Inline code */
 code {
     font-family: 'Courier New', monospace;
     font-size: 0.9em;
-    background-color: var(--color-cream);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 0.125rem 0.25rem;
     border-radius: var(--radius-sm);
-    color: var(--color-primary-dark);
+    color: var(--color-primary-light);
+    border: 1px solid var(--glass-border);
 }
 
 /* Blockquote */
@@ -358,6 +356,11 @@ blockquote {
     margin: var(--space-6) 0;
     font-style: italic;
     color: var(--color-text-secondary);
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-4);
 }
 
 @media (min-width: 768px) {
@@ -382,7 +385,9 @@ blockquote {
     font-family: var(--font-script);
     font-size: var(--fs-4xl);
     color: var(--color-white);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        0 4px 20px rgba(232, 85, 46, 0.3);
 }
 
 .hero__title-bold {
@@ -391,7 +396,9 @@ blockquote {
     color: var(--color-white);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        0 4px 20px rgba(232, 85, 46, 0.4);
 }
 
 .hero__tagline {
@@ -401,7 +408,7 @@ blockquote {
     letter-spacing: var(--ls-wide);
     font-weight: var(--fw-medium);
     margin-bottom: var(--space-8);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
@@ -466,6 +473,22 @@ blockquote {
 }
 
 /* ==========================================
+   TEXT GLOW EFFECTS (for dark theme)
+   ========================================== */
+
+.text-glow {
+    text-shadow: 0 0 20px currentColor;
+}
+
+.text-glow-primary {
+    text-shadow: 0 0 20px rgba(232, 85, 46, 0.5);
+}
+
+.text-glow-white {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================
    RESPONSIVE TEXT SIZES
    ========================================== */
 
@@ -483,6 +506,7 @@ blockquote {
     body {
         font-size: 12pt;
         line-height: 1.5;
+        color: black;
     }
     
     h1 {
@@ -495,5 +519,19 @@ blockquote {
     
     h3 {
         font-size: 16pt;
+    }
+    
+    .title__script,
+    .title__bold,
+    .hero__title-script,
+    .hero__title-bold {
+        color: black;
+        text-shadow: none;
+    }
+    
+    code,
+    blockquote {
+        background: transparent;
+        border: 1px solid black;
     }
 }

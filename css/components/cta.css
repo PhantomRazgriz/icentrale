@@ -26,8 +26,8 @@
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -108,7 +108,9 @@
     font-family: var(--font-script);
     font-size: var(--fs-2xl);
     color: var(--color-white);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .cta__title .title__bold {
@@ -117,7 +119,9 @@
     color: var(--color-white);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -149,7 +153,7 @@
     color: var(--color-white);
     line-height: var(--lh-relaxed);
     margin-bottom: var(--space-8);
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     opacity: 0.95;
 }
 
@@ -180,6 +184,8 @@
     transition: all var(--transition-base);
     text-decoration: none;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -194,32 +200,45 @@
     background-color: var(--color-white);
     color: var(--color-primary);
     border-color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .btn--primary:hover {
     background-color: var(--color-cream);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .btn--primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Secondary button */
 .btn--secondary {
-    background-color: transparent;
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--color-white);
-    border-color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn--secondary:hover {
-    background-color: var(--color-white);
-    color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .btn--secondary:active {
@@ -261,8 +280,18 @@
     background: linear-gradient(
         135deg,
         var(--color-black) 0%,
-        var(--color-gray-dark) 100%
+        var(--color-dark-900) 100%
     );
+}
+
+.cta--dark .btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.cta--dark .btn--primary:hover {
+    background-color: var(--color-primary-light);
 }
 
 /* Light CTA variant */
@@ -292,6 +321,7 @@
 }
 
 .cta--light .btn--secondary {
+    background: var(--glass-bg);
     color: var(--color-primary);
     border-color: var(--color-primary);
 }
@@ -354,7 +384,7 @@
 
 /* Focus state */
 .btn:focus-visible {
-    outline: 3px solid var(--color-white);
+    outline: 3px solid rgba(255, 255, 255, 0.5);
     outline-offset: 4px;
 }
 

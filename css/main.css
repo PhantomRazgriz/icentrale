@@ -48,6 +48,12 @@
    3. GLOBAL OVERRIDES & UTILITIES
    ========================================== */
 
+/* Dark theme body background */
+body {
+    background-color: var(--color-dark-900);
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-900) 50%, var(--color-black) 100%);
+}
+
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
@@ -159,7 +165,79 @@ main {
 }
 
 /* ==========================================
-   7. UTILITY CLASSES
+   7. GLASSMORPHISM UTILITIES
+   ========================================== */
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+}
+
+.glass-light {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+}
+
+.glass-strong {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+}
+
+/* ==========================================
+   8. DEPTH & LAYERING UTILITIES
+   ========================================== */
+
+.depth-1 {
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.depth-2 {
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.4),
+        0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.depth-3 {
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.depth-primary {
+    box-shadow: 
+        0 10px 30px rgba(232, 85, 46, 0.4),
+        0 15px 40px rgba(232, 85, 46, 0.3),
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Elevated elements (cards, buttons) */
+.elevated {
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-base);
+}
+
+.elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.4),
+        0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   9. UTILITY CLASSES
    ========================================== */
 
 /* Visibility utilities */
@@ -267,12 +345,16 @@ main {
     background-color: var(--color-black);
 }
 
+.bg-dark {
+    background-color: var(--color-dark-900);
+}
+
 .bg-primary {
     background-color: var(--color-primary);
 }
 
 /* ==========================================
-   8. LOADING STATES
+   10. LOADING STATES
    ========================================== */
 
 .loading {
@@ -288,7 +370,7 @@ main {
     width: 40px;
     height: 40px;
     margin: -20px 0 0 -20px;
-    border: 4px solid var(--color-cream);
+    border: 4px solid var(--color-dark-600);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -301,7 +383,7 @@ main {
 }
 
 /* ==========================================
-   9. PRELOAD ANIMATIONS
+   11. PRELOAD ANIMATIONS
    ========================================== */
 
 /* Page loader */
@@ -311,7 +393,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,14 +409,14 @@ main {
 .page-loader__spinner {
     width: 60px;
     height: 60px;
-    border: 4px solid var(--color-cream);
+    border: 4px solid var(--color-dark-600);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
 /* ==========================================
-   10. ACCESSIBILITY IMPROVEMENTS
+   12. ACCESSIBILITY IMPROVEMENTS
    ========================================== */
 
 /* Focus visible styling for all interactive elements */
@@ -370,10 +452,14 @@ select:focus-visible {
         transform: none;
         transition: none;
     }
+    
+    .elevated:hover {
+        transform: none;
+    }
 }
 
 /* ==========================================
-   11. PRINT STYLES
+   13. PRINT STYLES
    ========================================== */
 
 @media print {
@@ -387,6 +473,10 @@ select:focus-visible {
     }
     
     /* Reset backgrounds */
+    body {
+        background: white !important;
+    }
+    
     * {
         background: transparent !important;
         color: black !important;
@@ -422,7 +512,7 @@ select:focus-visible {
 }
 
 /* ==========================================
-   12. RESPONSIVE HELPERS
+   14. RESPONSIVE HELPERS
    ========================================== */
 
 /* Mobile only */
@@ -448,7 +538,34 @@ select:focus-visible {
 }
 
 /* ==========================================
-   13. DEBUG UTILITIES (remove in production)
+   15. AMBIENT LIGHTING EFFECTS
+   ========================================== */
+
+.ambient-glow {
+    position: relative;
+}
+
+.ambient-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        var(--color-primary-alpha) 0%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================
+   16. DEBUG UTILITIES (remove in production)
    ========================================== */
 
 /* 

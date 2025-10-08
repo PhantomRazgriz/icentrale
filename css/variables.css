@@ -1,36 +1,49 @@
 :root {
     /* ==========================================
        COLORS - Palette Brand A i' centrale
+       Dark Theme with Glass Effects
        ========================================== */
     
     /* Primary Colors */
     --color-primary: #E8552E;
     --color-primary-dark: #D94D28;
     --color-primary-light: #FF6B42;
-    --color-primary-alpha: rgba(232, 85, 46, 0.1);
+    --color-primary-alpha: rgba(232, 85, 46, 0.15);
+    
+    /* Dark Theme Base Colors */
+    --color-black: #0A0A0A;
+    --color-dark-900: #121212;
+    --color-dark-800: #1A1A1A;
+    --color-dark-700: #242424;
+    --color-dark-600: #2E2E2E;
     
     /* Neutral Colors */
     --color-white: #FFFFFF;
     --color-cream: #F5F3E8;
     --color-cream-dark: #E8E6D8;
-    --color-black: #1A1A1A;
-    --color-gray-dark: #2B2B2B;
     --color-gray: #8B8B8B;
     --color-gray-light: #A5A5A5;
     --color-gray-lighter: #D9D9D9;
     
-    /* Semantic Colors */
-    --color-text-primary: var(--color-black);
-    --color-text-secondary: var(--color-gray-dark);
+    /* Glass Effect Colors */
+    --glass-bg: rgba(26, 26, 26, 0.7);
+    --glass-bg-light: rgba(26, 26, 26, 0.5);
+    --glass-bg-strong: rgba(26, 26, 26, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Semantic Colors - Dark Theme */
+    --color-text-primary: var(--color-white);
+    --color-text-secondary: var(--color-gray-light);
     --color-text-muted: var(--color-gray);
     --color-text-light: var(--color-white);
     
-    --color-bg-primary: var(--color-white);
-    --color-bg-secondary: var(--color-cream);
+    --color-bg-primary: var(--color-dark-900);
+    --color-bg-secondary: var(--color-dark-800);
     --color-bg-dark: var(--color-black);
     
-    --color-border: var(--color-gray-lighter);
-    --color-border-dark: var(--color-gray-dark);
+    --color-border: var(--color-dark-600);
+    --color-border-dark: var(--color-dark-700);
     
     /* ==========================================
        TYPOGRAPHY
@@ -138,18 +151,22 @@
     --border-width-thick: 2px;
     
     /* ==========================================
-       SHADOWS
+       SHADOWS - Dark Theme Enhanced
        ========================================== */
     
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     
     /* Brand Shadow - Orange glow */
-    --shadow-primary: 0 10px 30px -5px rgba(232, 85, 46, 0.3);
+    --shadow-primary: 0 10px 30px -5px rgba(232, 85, 46, 0.4);
+    --shadow-primary-lg: 0 20px 50px -10px rgba(232, 85, 46, 0.5);
+    
+    /* Glass Shadow */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     
     /* ==========================================
        TRANSITIONS & ANIMATIONS
@@ -242,16 +259,21 @@
 }
 
 /* ==========================================
-   THEME VARIANTS (for future dark mode)
+   THEME VARIANTS (for future light mode toggle)
    ========================================== */
 
-[data-theme="dark"] {
-    --color-text-primary: var(--color-white);
-    --color-text-secondary: var(--color-gray-light);
+[data-theme="light"] {
+    --color-text-primary: var(--color-black);
+    --color-text-secondary: var(--color-dark-700);
     --color-text-muted: var(--color-gray);
     
-    --color-bg-primary: var(--color-black);
-    --color-bg-secondary: var(--color-gray-dark);
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-cream);
     
-    --color-border: var(--color-gray);
+    --color-border: var(--color-gray-lighter);
+    
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg-light: rgba(255, 255, 255, 0.5);
+    --glass-bg-strong: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.1);
 }
