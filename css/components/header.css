@@ -56,33 +56,41 @@
 .header__logo {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
     text-decoration: none;
     transition: transform var(--transition-fast);
     flex-shrink: 0;
+    position: relative;
 }
 
 .header__logo:hover {
     transform: scale(1.02);
 }
 
-.header__logo .logo__script {
-    font-size: var(--fs-xl);
-    color: var(--color-white);
+/* Logo image in header */
+.logo__image {
+    height: 55px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    transition: filter var(--transition-fast);
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-.header__logo .logo__bold {
-    font-size: var(--fs-xl);
-    color: var(--color-primary);
+.header__logo:hover .logo__image {
+    filter: drop-shadow(0 4px 12px rgba(232, 85, 46, 0.4));
 }
 
 @media (min-width: 768px) {
-    .header__logo .logo__script {
-        font-size: var(--fs-2xl);
+    .logo__image {
+        height: 70px;
     }
-    
-    .header__logo .logo__bold {
-        font-size: var(--fs-2xl);
+}
+
+@media (min-width: 1024px) {
+    .logo__image {
+        height: 85px;
     }
 }
 
@@ -328,10 +336,8 @@ body {
     border-bottom-color: transparent;
 }
 
-.header--transparent .header__logo .logo__script,
-.header--transparent .header__logo .logo__bold {
-    color: var(--color-white);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+.header--transparent .logo__image {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 .header--transparent .nav__link {
@@ -349,12 +355,8 @@ body {
     border-bottom-color: var(--glass-border);
 }
 
-.header--transparent.header--scrolled .header__logo .logo__script {
-    color: var(--color-white);
-}
-
-.header--transparent.header--scrolled .header__logo .logo__bold {
-    color: var(--color-primary);
+.header--transparent.header--scrolled .logo__image {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 .header--transparent.header--scrolled .nav__link {
@@ -380,6 +382,12 @@ body {
 .header__burger:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.header__logo:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
     border-radius: var(--radius-sm);
 }
 
@@ -436,5 +444,9 @@ body {
     .nav__link::after,
     .header__nav--mobile {
         transition: none;
+    }
+    
+    .header__logo:hover {
+        transform: none;
     }
 }
